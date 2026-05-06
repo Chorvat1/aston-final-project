@@ -5,7 +5,10 @@ public class Car {
     private String model;
     private int year;
 
-    private Car() {
+    private Car(CarBuilder carBuilder) {
+        this.power = carBuilder.power;
+        this.model = carBuilder.model;
+        this.year = carBuilder.year;
     }
 
     public int getPower() {
@@ -29,26 +32,30 @@ public class Car {
                 '}';
     }
 
-    public class CarBuilder {
-        private CarBuilder() {}
+    public static class CarBuilder {
+        private int power;
+        private String model;
+        private int year;
+
+        CarBuilder() {}
 
         public CarBuilder setPower (int power) {
-            Car.this.power = power;
+            this.power = power;
             return this;
         }
 
         public CarBuilder setModel (String model) {
-            Car.this.model = model;
+            this.model = model;
             return this;
         }
 
         public CarBuilder setYear (int year) {
-            Car.this.year = year;
+            this.year = year;
             return this;
         }
 
         public Car build() {
-            return Car.this;
+            return new Car(this);
         }
 
     }
