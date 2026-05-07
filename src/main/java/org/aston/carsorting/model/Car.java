@@ -37,7 +37,7 @@ public class Car {
         private String model;
         private int year;
 
-        CarBuilder() {}
+        public CarBuilder() {}
 
         public CarBuilder setPower (int power) {
             this.power = power;
