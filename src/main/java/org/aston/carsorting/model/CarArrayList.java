@@ -64,10 +64,9 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public Car[] set(int index, Car car) {
+    public void set(int index, Car car) {
         checkIndex(index);
         array[index] = car;
-        return array;
     }
 
     @Override
@@ -81,18 +80,18 @@ public class CarArrayList implements CarList {
     }
 
     @Override
-    public Stream stream() {
-        return Arrays.stream(array).toList().stream();
+    public Stream<Car> stream() {
+        return Arrays.stream(array, 0, size).toList().stream();
     }
 
     @Override
-    public Stream parallelStream() {
-        return Arrays.stream(array).parallel().toList().parallelStream();
+    public Stream<Car> parallelStream() {
+        return Arrays.stream(array, 0, size).parallel().toList().parallelStream();
     }
 
     @Override
     public void printArray() {
-        Arrays.stream(array).filter(Objects::nonNull).forEach(System.out::println);
+        stream().forEach(System.out::println);
     }
 
     private void checkIndex(int index) {

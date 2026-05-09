@@ -11,9 +11,9 @@ public interface CarList {
     boolean removeAt (int index);
     int size();
     void clear();
-    Car[] set(int index, Car car);
+    void set(int index, Car car);
     void swap(int index1, int index2);
-    Stream stream();
-    Stream parallelStream();
+    Stream<Car> stream();
+    Stream<Car> parallelStream();
     void printArray();
 }
