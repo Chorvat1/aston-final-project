@@ -1,8 +1,10 @@
 package org.aston.carsorting.model;
 
+import org.aston.carsorting.util.CarModel;
+
 public class Car {
     private int power;
-    private String model;
+    private CarModel model;
     private int year;
 
     private Car(CarBuilder carBuilder) {
@@ -15,7 +17,7 @@ public class Car {
         return power;
     }
 
-    public String getModel() {
+    public CarModel getModel() {
         return model;
     }
 
@@ -34,7 +36,7 @@ public class Car {
 
     public static class CarBuilder {
         private int power;
-        private String model;
+        private CarModel model;
         private int year;
 
         public CarBuilder() {}
@@ -44,7 +46,7 @@ public class Car {
             return this;
         }
 
-        public CarBuilder setModel (String model) {
+        public CarBuilder setModel (CarModel model) {
             this.model = model;
             return this;
         }
