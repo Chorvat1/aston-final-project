@@ -61,4 +61,7 @@ public class Car {
         }
 
     }
+        public void print(){
+        System.out.printf("Car Model:%s ;Power: %d;  Year: %d \n", model, power,  year);
+    }
 }
