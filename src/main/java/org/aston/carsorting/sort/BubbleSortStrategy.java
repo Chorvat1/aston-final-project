@@ -10,7 +10,9 @@ public class BubbleSortStrategy implements SortStrategy {
 
 	@Override
 	public void sort(ArrayList<Car> cars) {
-		TotalComparator Comparator = new TotalComparator();
+		TotalComparator Comparator = new TotalComparator();//было
+//		TotalComparator Comparator = TotalComparator.INSTANCE;//стало
+
 		for (int i = 0; i < cars.size() - 1; i++) {
 			boolean hasUnsorted = false;
 			for(int j = 0; j < cars.size() - i - 1; j++) {
