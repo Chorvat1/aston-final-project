@@ -1,15 +1,12 @@
 package org.aston.carsorting.sort;
 
 import org.aston.carsorting.comparator.TotalComparator;
-import org.aston.carsorting.model.Car;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import org.aston.carsorting.model.CarArrayList;
 
 public class SelectionSortStrategy implements SortStrategy {
 
 	@Override
-	public void sort(ArrayList<Car> cars) {
+	public void sort(CarArrayList cars) {
 		TotalComparator Comparator = new TotalComparator();
 		for (int i = 0; i < cars.size() - 1; i++) {
 			int minIndex = i;
@@ -19,7 +16,7 @@ public class SelectionSortStrategy implements SortStrategy {
 				}
 			}
 			if (i != minIndex) {
-				Collections.swap(cars, i, minIndex);
+				cars.swap(i, minIndex);
 			}
 		}
 	}
