@@ -1,5 +1,6 @@
 package org.aston.carsorting.sort;
 
+import org.aston.carsorting.comparator.TotalComparator;
 import org.aston.carsorting.model.Car;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ public class InsertionSortStrategy implements SortStrategy {
 
 	@Override
 	public void sort(ArrayList<Car> cars) {
+		TotalComparator Comparator = new TotalComparator();
 		for (int i = 1; i < cars.size() - 1; i++) {
 			Car temp = cars.get(i);
 			int j = i;
