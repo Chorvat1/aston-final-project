@@ -8,11 +8,10 @@ public class InsertionSortStrategy implements SortStrategy {
 
 	@Override
 	public void sort(CarList cars) {
-		TotalComparator Comparator = new TotalComparator();
 		for (int i = 1; i < cars.size(); i++) {
 			Car temp = cars.get(i);
 			int j = i;
-			while (j > 0 && Comparator.compare(cars.get(j-1),temp) > 0){
+			while (j > 0 && TotalComparator.INSTANCE.compare(cars.get(j-1),temp) > 0){
 				cars.set(j,cars.get(j-1));
 				j--;
 			}

@@ -6,11 +6,10 @@ import org.aston.carsorting.model.CarList;
 public class BubbleSortStrategy implements SortStrategy {
 	@Override
 	public void sort(CarList cars) {
-		TotalComparator Comparator = new TotalComparator();
 		for (int i = 0; i < cars.size() - 1; i++) {
 			boolean hasUnsorted = false;
 			for(int j = 0; j < cars.size() - i - 1; j++) {
-				if(Comparator.compare(cars.get(j), cars.get(j + 1)) > 0) {
+				if(TotalComparator.INSTANCE.compare(cars.get(j), cars.get(j + 1)) > 0) {
 					cars.swap(j, j + 1);
 					hasUnsorted = true;
 				}

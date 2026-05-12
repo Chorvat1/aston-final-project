@@ -33,6 +33,7 @@ public class SorterTest {
 		ArrayList<Car> correctTest1 = before.setUpArrayListFrom(test1);
 		correctTest1.sort(cascadingComparator);
 		asserter.compare(correctTest1, test1, "#1 One Element Sort");
+		after.setDown();
 
 		//Test 2 Sort Ascending
 		System.out.println("#2 Sort Ascending");
@@ -40,6 +41,7 @@ public class SorterTest {
 		ArrayList<Car> correctTest2 = before.setUpArrayListFrom(test2);
 		correctTest2.sort(cascadingComparator);
 		asserter.compare(correctTest2, test2, "#2 Sort Ascending");
+		after.setDown();
 
 		//Test 3 Sort Repeated Values
 		System.out.println("#3 Sort Repeated Values");
@@ -47,6 +49,7 @@ public class SorterTest {
 		ArrayList<Car> correctTest3 = before.setUpArrayListFrom(test3);
 		correctTest3.sort(cascadingComparator);
 		asserter.compare(correctTest3, test3, "#3 Sort Repeated Values");
+		after.setDown();
 
 		//Test 4 Sort Large Array
 		System.out.println("#4 Sort Large Array");
@@ -54,6 +57,7 @@ public class SorterTest {
 		ArrayList<Car> correctTest4 = before.setUpArrayListFrom(test4);
 		correctTest4.sort(cascadingComparator);
 		asserter.compare(correctTest4, test4, "#4 Sort Large Array");
+		after.setDown();
 	}
 }
 
@@ -102,7 +106,6 @@ class After {
 class Assert {
 	public boolean compare(ArrayList<Car> list1, CarList list2, String test_name) {
 		boolean result = true;
-		TotalComparator totalComparator = new TotalComparator();
 		Sorter sorter = new Sorter(new BubbleSortStrategy());
 		CarList bubbleSorted = new CarArrayList();
 		for (int i = 0; i < list2.size(); i++) {
@@ -110,7 +113,7 @@ class Assert {
 		}
 		sorter.sort(bubbleSorted, false);
 		for (int i = 0; i < list1.size(); i++) {
-			if (totalComparator.compare(list1.get(i),bubbleSorted.get(i))!= 0){
+			if (TotalComparator.INSTANCE.compare(list1.get(i),bubbleSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At BubbleSort sorting)");
 				result = false;
 				break;
@@ -124,7 +127,7 @@ class Assert {
 		}
 		sorter.sort(insertionSorted, false);
 		for (int i = 0; i < list1.size(); i++) {
-			if (totalComparator.compare(list1.get(i),insertionSorted.get(i))!= 0){
+			if (TotalComparator.INSTANCE.compare(list1.get(i),insertionSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At InsertionSort sorting)");
 				result = false;
 				break;
@@ -138,7 +141,7 @@ class Assert {
 		}
 		sorter.sort(selectionSorted, false);
 		for (int i = 0; i < list1.size(); i++) {
-			if (totalComparator.compare(list1.get(i),selectionSorted.get(i))!= 0){
+			if (TotalComparator.INSTANCE.compare(list1.get(i),selectionSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At SelectionSort sorting)");
 				result = false;
 				break;
