@@ -1,8 +1,10 @@
+package org.aston.carsorting.sort;
+
+import org.aston.carsorting.sort.*;
 import org.aston.carsorting.comparator.TotalComparator;
 import org.aston.carsorting.model.Car;
 import org.aston.carsorting.model.CarArrayList;
 import org.aston.carsorting.model.CarList;
-import org.aston.carsorting.sort.*;
 import org.aston.carsorting.util.CarModel;
 
 import java.util.ArrayList;
