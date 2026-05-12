@@ -17,6 +17,11 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final String DEFAULT_FILE_PATH = "src/main/resources/cars.txt";
     private static CarList currentCars;
+    //Параметры доп заданий
+    static boolean dop1 = false;
+    static boolean dop2 = false;
+    //static boolean dop3 = false;
+    //static boolean dop4 = false;
 
     public static void main(String[] args) {
 
@@ -126,12 +131,14 @@ public class Main {
 
         System.out.println("Сортируем...");
         //Use:
-        sorter.sort(carList, false); //true если нужна сортировка по доп_заданию 1
+        sorter.sort(carList, dop1); //true если нужна сортировка по доп_заданию 1
         //sorter.sort(carList, new TotalComparator());
 
         System.out.println("--- ОТСОРТИРОВАННЫЙ СПИСОК АВТОМОБИЛЕЙ ---");
         carList.printArray();
-        printToFile(carList);
+        if (dop2) {
+            printToFile(carList);
+        }
     }
 
     private static int getIntInput(String prompt) {
