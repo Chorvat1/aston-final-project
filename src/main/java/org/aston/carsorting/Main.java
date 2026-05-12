@@ -8,6 +8,9 @@ import org.aston.carsorting.input.RandomInputStrategy;
 import org.aston.carsorting.model.CarList;
 import org.aston.carsorting.sort.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -122,10 +125,13 @@ public class Main {
         Sorter sorter = new Sorter(strategy);
 
         System.out.println("Сортируем...");
+        //Use:
+        sorter.sort(carList, false); //true если нужна сортировка по доп_заданию 1
         //sorter.sort(carList, new TotalComparator());
 
         System.out.println("--- ОТСОРТИРОВАННЫЙ СПИСОК АВТОМОБИЛЕЙ ---");
         carList.printArray();
+        printToFile(carList);
     }
 
     private static int getIntInput(String prompt) {
@@ -148,5 +154,15 @@ public class Main {
             }
             System.out.println("Ошибка! Введите число больше 0.");
         }
+    }
+
+    private static boolean printToFile(CarList carList) {
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter("src/main/resources/output.txt"))) {
+            carList.stream().forEach(printWriter::println);
+        } catch (IOException e){
+            System.out.println("Ошибка при записи в файл " + e.getMessage());
+            return false;
+        }
+        return true;
     }
 }
