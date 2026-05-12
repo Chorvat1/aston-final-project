@@ -17,7 +17,8 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final String DEFAULT_FILE_PATH = "src/main/resources/cars.txt";
     private static CarList currentCars;
-    //Параметры доп заданий (предлагаю оставить публичными, чтобы по месту реализации чек делать)
+
+    //Параметры доп заданий (предлагаю оставить публичными, чтобы по месту реализации чек делать, а не обязательно из мейна тянуть везде)
     public static boolean dop1 = false;
     public static boolean dop2 = false;
     //public static boolean dop3 = false;
