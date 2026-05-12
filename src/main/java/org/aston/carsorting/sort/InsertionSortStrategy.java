@@ -9,6 +9,7 @@ public class InsertionSortStrategy implements SortStrategy {
 	@Override
 	public void sort(CarArrayList cars) {
 		TotalComparator Comparator = new TotalComparator();
+//		TotalComparator Comparator = TotalComparator.INSTANCE;
 		for (int i = 1; i < cars.size() - 1; i++) {
 			Car temp = cars.get(i);
 			int j = i;
