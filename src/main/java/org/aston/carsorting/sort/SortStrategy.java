@@ -1,7 +1,7 @@
 package org.aston.carsorting.sort;
 
-import org.aston.carsorting.model.CarArrayList;
+import org.aston.carsorting.model.CarList;
 
 public interface SortStrategy {
-	public void sort(CarArrayList cars);
+	public void sort(CarList cars);
 }

@@ -1,12 +1,12 @@
 package org.aston.carsorting.sort;
 
 import org.aston.carsorting.comparator.TotalComparator;
-import org.aston.carsorting.model.CarArrayList;
+import org.aston.carsorting.model.CarList;
 
 public class SelectionSortStrategy implements SortStrategy {
 
 	@Override
-	public void sort(CarArrayList cars) {
+	public void sort(CarList cars) {
 		TotalComparator Comparator = new TotalComparator();
 //		TotalComparator Comparator = TotalComparator.INSTANCE;
 		for (int i = 0; i < cars.size() - 1; i++) {

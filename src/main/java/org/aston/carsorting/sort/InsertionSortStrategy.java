@@ -2,15 +2,14 @@ package org.aston.carsorting.sort;
 
 import org.aston.carsorting.comparator.TotalComparator;
 import org.aston.carsorting.model.Car;
-import org.aston.carsorting.model.CarArrayList;
+import org.aston.carsorting.model.CarList;
 
 public class InsertionSortStrategy implements SortStrategy {
 
 	@Override
-	public void sort(CarArrayList cars) {
+	public void sort(CarList cars) {
 		TotalComparator Comparator = new TotalComparator();
-//		TotalComparator Comparator = TotalComparator.INSTANCE;
-		for (int i = 1; i < cars.size() - 1; i++) {
+		for (int i = 1; i < cars.size(); i++) {
 			Car temp = cars.get(i);
 			int j = i;
 			while (j > 0 && Comparator.compare(cars.get(j-1),temp) > 0){
