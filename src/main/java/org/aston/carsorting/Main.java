@@ -8,12 +8,21 @@ import org.aston.carsorting.input.RandomInputStrategy;
 import org.aston.carsorting.model.CarList;
 import org.aston.carsorting.sort.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final String DEFAULT_FILE_PATH = "src/main/resources/cars.txt";
     private static CarList currentCars;
+
+    //Параметры доп заданий (предлагаю оставить публичными, чтобы по месту реализации чек делать, а не обязательно из мейна тянуть везде)
+    public static boolean dop1 = false;
+    public static boolean dop2 = false;
+    public static boolean dop3 = true;
+    //public static boolean dop4 = false;
 
     public static void main(String[] args) {
 
@@ -122,10 +131,15 @@ public class Main {
         Sorter sorter = new Sorter(strategy);
 
         System.out.println("Сортируем...");
+        //Use:
+        sorter.sort(carList);
         //sorter.sort(carList, new TotalComparator());
 
         System.out.println("--- ОТСОРТИРОВАННЫЙ СПИСОК АВТОМОБИЛЕЙ ---");
         carList.printArray();
+        if (dop2) {
+            printToFile(carList);
+        }
     }
 
     private static int getIntInput(String prompt) {
@@ -148,5 +162,15 @@ public class Main {
             }
             System.out.println("Ошибка! Введите число больше 0.");
         }
+    }
+
+    private static boolean printToFile(CarList carList) {
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter("src/main/resources/output.txt"))) {
+            carList.stream().forEach(printWriter::println);
+        } catch (IOException e){
+            System.out.println("Ошибка при записи в файл " + e.getMessage());
+            return false;
+        }
+        return true;
     }
 }
