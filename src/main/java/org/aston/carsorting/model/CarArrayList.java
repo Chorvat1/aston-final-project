@@ -1,7 +1,6 @@
 package org.aston.carsorting.model;
 
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public class CarArrayList implements CarList {
