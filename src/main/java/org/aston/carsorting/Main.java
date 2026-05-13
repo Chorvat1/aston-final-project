@@ -1,6 +1,5 @@
 package org.aston.carsorting;
 
-import org.aston.carsorting.comparator.TotalComparator;
 import org.aston.carsorting.input.FileInputStrategy;
 import org.aston.carsorting.input.InputStrategy;
 import org.aston.carsorting.input.ManualInputStrategy;
@@ -131,9 +130,9 @@ public class Main {
         Sorter sorter = new Sorter(strategy);
 
         System.out.println("Сортируем...");
-        //Use:
+
         sorter.sort(carList);
-        //sorter.sort(carList, new TotalComparator());
+
 
         System.out.println("--- ОТСОРТИРОВАННЫЙ СПИСОК АВТОМОБИЛЕЙ ---");
         carList.printArray();

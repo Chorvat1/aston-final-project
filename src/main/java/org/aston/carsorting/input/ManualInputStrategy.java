@@ -32,7 +32,7 @@ public class ManualInputStrategy implements InputStrategy {
 
         CarList collection = new CarArrayList();
 
-        //2 часа сидел чтобы по итогу снести всё что делал и сделать вот этот высер, по другому это либо лютый дроч для гениев который я пока не в состоянии понять либо смысла нет, сами решайте
+
         if (Main.dop3){
             IntStream.range(0, n)
                     .mapToObj(this::carFromInput)
