@@ -1,5 +1,6 @@
 package org.aston.carsorting.sort;
 
+import org.aston.carsorting.Main;
 import org.aston.carsorting.model.CarArrayList;
 import org.aston.carsorting.model.CarList;
 
@@ -15,8 +16,8 @@ public class Sorter {
 		this.sortStrategy = strategy;
 	}
 
-	public void sort(CarList cars, boolean dop1_isActive) {
-		if (!dop1_isActive) {
+	public void sort(CarList cars) {
+		if (!Main.dop1) {
 			sortStrategy.sort(cars);
 		} else {
 			CarList evenCars = new CarArrayList();

@@ -113,7 +113,7 @@ class Assert {
 		for (int i = 0; i < list2.size(); i++) {
 			bubbleSorted.add(list2.get(i));
 		}
-		sorter.sort(bubbleSorted, false);
+		sorter.sort(bubbleSorted);
 		for (int i = 0; i < list1.size(); i++) {
 			if (TotalComparator.INSTANCE.compare(list1.get(i),bubbleSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At BubbleSort sorting)");
@@ -127,7 +127,7 @@ class Assert {
 		for (int i = 0; i < list2.size(); i++) {
 			insertionSorted.add(list2.get(i));
 		}
-		sorter.sort(insertionSorted, false);
+		sorter.sort(insertionSorted);
 		for (int i = 0; i < list1.size(); i++) {
 			if (TotalComparator.INSTANCE.compare(list1.get(i),insertionSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At InsertionSort sorting)");
@@ -141,7 +141,7 @@ class Assert {
 		for (int i = 0; i < list2.size(); i++) {
 			selectionSorted.add(list2.get(i));
 		}
-		sorter.sort(selectionSorted, false);
+		sorter.sort(selectionSorted);
 		for (int i = 0; i < list1.size(); i++) {
 			if (TotalComparator.INSTANCE.compare(list1.get(i),selectionSorted.get(i))!= 0){
 				System.out.println("X " + test_name + " test has Failed! (At SelectionSort sorting)");
