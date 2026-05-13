@@ -34,8 +34,9 @@ public class CarListTest {
         //Test 3 whenNonExistentElementRemovedThenReturnFalse
         System.out.println("#3 remove() throws IndexOutOfBoundsException");
         CarList test3 = before.setUP();
-        try {test3.removeAt(15);}
-        catch (IndexOutOfBoundsException e) {
+        try {
+            test3.removeAt(15);
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Test Passed");
         }
         asserts.assertEquals(10, test3.size());
@@ -44,8 +45,9 @@ public class CarListTest {
         //Test 4 methodGetReturnedRightValue
         System.out.println("#4 get()");
         CarList test4 = before.setUP();
-        Car carTest4 = test4.get(0);
-        asserts.assertEquals(CarModel.VOLVO.ordinal(), carTest4.getModel().ordinal());
+        test4.add(new Car.CarBuilder().setModel(CarModel.TOYOTA).build());
+        Car carTest4 = test4.get(10);
+        asserts.assertEquals(CarModel.TOYOTA.ordinal(), carTest4.getModel().ordinal());
         after.setDown();
 
         //Test 5 methodAddIncreaseArrayLength
@@ -64,7 +66,7 @@ public class CarListTest {
         test6.set(0, new Car.CarBuilder().build());
         if (carTest6.equals(test6.get(0))) {
             System.out.println("Test Failed");
-        } else  {
+        } else {
             System.out.println("Test Passed");
         }
         after.setDown();
@@ -85,13 +87,15 @@ class Before {
     public CarList setUP() throws Exception {
         CarList carList = new CarArrayList();
         for (int i = 0; i < 10; i++) {
-            carList.add(new Car.CarBuilder().setModel(CarModel.VOLVO).setPower(200 + 100*i).setYear(2000 + i).build());
-        } return carList;
+            carList.add(new Car.CarBuilder().setModel(CarModel.VOLVO).setPower(200 + 100 * i).setYear(2000 + i).build());
+        }
+        return carList;
     }
 }
 
 class After {
     String string = "_______";
+
     public void setDown() {
         System.out.println(string);
     }
@@ -102,16 +106,14 @@ class Assert {
         if (expected == actual) {
             System.out.println("Test Passed");
 
-        }
-        else System.out.println("Test Failed");
+        } else System.out.println("Test Failed");
     }
 
     public void assertEquals(String expected, String actual) {
         if (expected.equals(actual)) {
             System.out.println("Test Passed");
 
-        }
-        else System.out.println("Test Failed");
+        } else System.out.println("Test Failed");
     }
 
     public void asserTrue(boolean expected) {

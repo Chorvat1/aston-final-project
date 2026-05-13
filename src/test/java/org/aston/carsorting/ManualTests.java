@@ -15,7 +15,6 @@ public class ManualTests {
         testValidator();
         testParser();
         testComparators();
-        // testSorts();
     }
 
     private static void testBuilder() {
@@ -154,10 +153,6 @@ public class ManualTests {
         check("total: 2020 < 2023 (same model+power)", totalComp.compare(same1, same2) < 0);
 
         System.out.println("---");
-    }
-
-    private static void testSorts() {
-        // ...
     }
 
     private static void check(String testName, boolean condition) {

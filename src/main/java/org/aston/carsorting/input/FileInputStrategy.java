@@ -25,7 +25,7 @@ public class FileInputStrategy implements InputStrategy {
     @Override
     public CarList getData() {
         CarList collection = new CarArrayList();
-        AtomicBoolean hasError = new AtomicBoolean(false); //для стрима, я хз как иначе из него выйти при ошибке парсера
+        AtomicBoolean hasError = new AtomicBoolean(false);
 
         if (Main.dop3){
             try (Stream<String> lines = Files.lines(Paths.get(filePath))) {

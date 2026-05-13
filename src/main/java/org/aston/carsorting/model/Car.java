@@ -28,8 +28,8 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "power=" + power +
-                ", model='" + model + '\'' +
+                "model='" + model + '\'' +
+                ", power=" + power +
                 ", year=" + year +
                 '}';
     }
