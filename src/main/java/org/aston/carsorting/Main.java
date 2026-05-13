@@ -21,7 +21,7 @@ public class Main {
     //Параметры доп заданий (предлагаю оставить публичными, чтобы по месту реализации чек делать, а не обязательно из мейна тянуть везде)
     public static boolean dop1 = false;
     public static boolean dop2 = false;
-    //public static boolean dop3 = false;
+    public static boolean dop3 = true;
     //public static boolean dop4 = false;
 
     public static void main(String[] args) {
