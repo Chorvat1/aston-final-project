@@ -81,12 +81,12 @@ public class CarArrayList implements CarList {
 
     @Override
     public Stream<Car> stream() {
-        return Arrays.stream(array, 0, size).toList().stream();
+        return Arrays.stream(array, 0, size);
     }
 
     @Override
     public Stream<Car> parallelStream() {
-        return Arrays.stream(array, 0, size).parallel().toList().parallelStream();
+        return Arrays.stream(array, 0, size).parallel();
     }
 
     @Override

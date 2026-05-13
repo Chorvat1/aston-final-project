@@ -1,13 +1,11 @@
 package org.aston.carsorting.comparator;
 
 import java.util.Comparator;
-
 import org.aston.carsorting.model.Car;
 
-public class PowerComparator implements Comparator<Car>{
-	
-	@Override
-	public int compare(Car o1, Car o2) {
-		return o1.getPower() - o2.getPower();
-	}
+public class PowerComparator implements Comparator<Car> {
+    @Override
+    public int compare(Car o1, Car o2) {
+        return Integer.compare(o1.getPower(), o2.getPower());
+    }
 }
